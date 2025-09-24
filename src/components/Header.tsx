@@ -46,7 +46,7 @@ const Header = () => {
             Resources
           </a>
           <a 
-            href="#programs" 
+            href="/programs" 
             className="text-primary hover:text-secondary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm px-2 py-1"
             aria-label="View our career development programs"
           >
