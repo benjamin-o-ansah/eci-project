@@ -44,6 +44,26 @@ const Programs = () => {
       category: "Career Development",
       features: ["Resume Building", "Interview Skills", "Networking", "Industry Insights"],
       color: "bg-gradient-accent"
+    },
+    {
+      id: 4,
+      title: "Mentorship & Leadership",
+      description: "A dynamic program designed to connect participants with experienced mentors while cultivating essential leadership skills for career growth and empowerment.",
+      duration: "12 weeks",
+      level: "Intermediate to Advanced",
+      category: "Career Empowerment",
+      features: ["One-on-One Mentorship", "Leadership Workshops", "Personal Branding", "Strategic Career Planning"],
+      color: "bg-gradient-accent"
+    },
+    {
+      id: 5,
+      title: "Internship and Job Shadowing Opportunities",
+      description: "Hands-on program offering real-world exposure through internships and job shadowing, bridging the gap between academic learning and professional practice.",
+      duration: "8 weeks",
+      level: "All Levels",
+      category: "Career Development",
+      features: ["Workplace Experience", "Professional Networking", "Skill Application", "Industry Mentorship"],
+      color: "bg-gradient-accent"
     }
   ];
 
@@ -192,9 +212,10 @@ const Programs = () => {
         {/* </section> */}
 
           {/* Upcoming Events Section */}
-          <section>
+          <section className="space-y-6 mt-10">
           <div className="flex items-center gap-3 mb-8">
             <Calendar className="h-8 w-8 text-primary" />
+            
             <h2 className="text-3xl font-bold text-foreground">Upcoming Events</h2>
           </div>
           
