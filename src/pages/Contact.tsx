@@ -12,7 +12,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GoogleMap from "@/components/GoogleMap";
 import { useToast } from "@/hooks/use-toast";
-import contactHeroImage from "@/assets/contact-hero.jpg";
+
 import Hero from "@/components/hero_contact";
 
 const Contact = () => {
