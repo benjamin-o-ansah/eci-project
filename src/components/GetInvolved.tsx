@@ -1,7 +1,54 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 const GetInvolved = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Scroll to hash when page loads or route changes
+  useEffect(() => {
+    if (location.hash === "#programs-section") {
+      document.getElementById("programs-section")?.scrollIntoView({ behavior: "smooth" });
+    }
+    else if (location.hash === "#impact-section") {
+      document.getElementById("impact-section")?.scrollIntoView({ behavior: "smooth" });
+    }
+    else if (location.hash === "#donate-section"){
+      document.getElementById("donate-section")?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [location]);
+
+  const handleImpact = () => {
+    if (location.pathname === "/about") {
+      // Already on programs page
+      document.getElementById("impact-section")?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // Navigate with hash
+      navigate("/about#impact-section");
+    }
+  };
+ const handledonate = () => {
+    if (location.pathname === "/donate") {
+      // Already on programs page
+      document.getElementById("donate-section")?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // Navigate with hash
+      navigate("/donate#donate-section");
+    }
+  };
+
+  const handleLearnMoreClick = () => {
+    if (location.pathname === "/programs") {
+      // Already on programs page
+      document.getElementById("programs-section")?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // Navigate with hash
+      navigate("/programs#programs-section");
+    }
+  
+  };
   const opportunities = [
     {
       title: "Students & Graduates",
@@ -52,11 +99,11 @@ const GetInvolved = () => {
             Get Involved
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Whether you're looking to advance your career, share your expertise, or find great talent, 
+            Whether you're looking to advance your career, share your expertise, or find great talent,
             there's a place for you in the ECI community.
           </p>
         </div>
-        
+
         <div className="grid lg:grid-cols-3 gap-8">
           {opportunities.map((opportunity, index) => (
             <Card key={index} className="bg-card shadow-elegant hover:shadow-warm transition-all duration-300 flex flex-col">
@@ -73,12 +120,12 @@ const GetInvolved = () => {
                   {opportunity.subtitle}
                 </p>
               </CardHeader>
-              
+
               <CardContent className="flex-1 flex flex-col">
                 <p className="text-secondary-foreground mb-6 text-center">
                   {opportunity.description}
                 </p>
-                
+
                 <div className="flex-1 space-y-3 mb-6">
                   {opportunity.benefits.map((benefit, benefitIndex) => (
                     <div key={benefitIndex} className="flex items-center text-sm">
@@ -87,36 +134,41 @@ const GetInvolved = () => {
                     </div>
                   ))}
                 </div>
-                
+
                 <div className="mt-auto">
                   <div className="bg-muted rounded-lg p-3 mb-4 text-center">
                     <span className="text-xs font-medium text-secondary-foreground">
                       {opportunity.highlight}
                     </span>
                   </div>
-                  <Button className="w-full" variant="hero" size="lg">
+                  <Button
+                    className="w-full" variant="hero" size="lg"
+
+                    onClick={handleLearnMoreClick}
+                  >
                     {opportunity.cta}
                   </Button>
+
                 </div>
               </CardContent>
             </Card>
           ))}
         </div>
-        
+
         <div className="text-center mt-12">
           <div className="bg-card rounded-2xl p-8 shadow-elegant max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold text-card-foreground mb-4">
               Support Our Mission
             </h3>
             <p className="text-muted-foreground mb-6">
-              Help us expand our impact and reach more young professionals across Ghana. 
+              Help us expand our impact and reach more young professionals across Ghana.
               Your donation directly funds scholarships, programs, and resources.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="lg">
-                Donate Now
+              <Button variant="hero" size="lg" onClick={handledonate}>
+              Donate Now
               </Button>
-              <Button variant="outline" size="lg">
+              <Button variant="outline" size="lg"  onClick={handleImpact}>
                 Learn About Impact
               </Button>
             </div>
