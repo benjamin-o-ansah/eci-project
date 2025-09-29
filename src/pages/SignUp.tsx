@@ -125,7 +125,7 @@ const SignUp = () => {
                     <Input
                       id="firstName"
                       {...register("firstName")}
-                      placeholder="John"
+                      placeholder="Nathan"
                       className={errors.firstName ? "border-destructive" : ""}
                     />
                     {errors.firstName && (
@@ -137,7 +137,7 @@ const SignUp = () => {
                     <Input
                       id="lastName"
                       {...register("lastName")}
-                      placeholder="Doe"
+                      placeholder="Akornor"
                       className={errors.lastName ? "border-destructive" : ""}
                     />
                     {errors.lastName && (
@@ -152,7 +152,7 @@ const SignUp = () => {
                     id="email"
                     type="email"
                     {...register("email")}
-                    placeholder="john@example.com"
+                    placeholder="nathan@example.com"
                     className={errors.email ? "border-destructive" : ""}
                   />
                   {errors.email && (
@@ -180,7 +180,7 @@ const SignUp = () => {
                       id="password"
                       type={showPassword ? "text" : "password"}
                       {...register("password")}
-                      placeholder="Enter your password"
+                      placeholder="**************"
                       className={errors.password ? "border-destructive pr-10" : "pr-10"}
                     />
                     <Button

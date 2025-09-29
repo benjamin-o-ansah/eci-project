@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -8,10 +8,22 @@ import Footer from "@/components/Footer";
 import EventRegistrationForm from "@/components/programs/EventRegistrationForm";
 import { format } from "date-fns";
 import Hero from "@/components/hero_programs";
+import { useLocation } from "react-router-dom";
 
 const Programs = () => {
   const [selectedEvent, setSelectedEvent] = useState<any>(null);
   const [showRegistration, setShowRegistration] = useState(false);
+const location = useLocation(); 
+ // ✅ Scroll to section if hash is present
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace("#", ""); // "programs-section"
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
 
   // Sample programs data - can be updated from admin dashboard
   const programs = [
@@ -152,7 +164,7 @@ const Programs = () => {
     <div className="min-h-screen bg-gradient-warm">
       <Header />
         <Hero></Hero>
-      <main className="container mx-auto px-4 pt-10 pb-12">
+      <main className="container mx-auto px-4 pt-10 pb-12" >
         {/* Hero Section */}
       
 
@@ -160,7 +172,7 @@ const Programs = () => {
 
           {/* Programs Section */}
           {/* <section className="mb-16"> */}
-          <div className="flex items-center gap-3 mb-8">
+          <div className="scroll-mt-40 flex items-center gap-3 mb-8" id="programs-section">
             <BookOpen className="h-8 w-8 text-primary" />
             <h2 className="text-3xl font-bold text-foreground">Our Programs</h2>
           </div>
